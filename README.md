@@ -1,5 +1,4 @@
-# Linux-commands-executer
-Linux Commands executor
+#Linux Commands executor
 azrieli college
 
 ==Description==
@@ -17,13 +16,10 @@ the program has two unique keywords,"history" which shows every input the user e
 
 5- the program scans if the user input a string from the format "!number" if this happens the program will execute the command that is found in the line "number" and print it to the console if of course number is not bigger than the total number of lines in the file "File.txt".
 
-Note: the program is divided into to two parts:
-1-ex2a which is responsible for only executing commands entered by the user and entering them to the history.
 
-2-ex2b which does what ex2a does in addition to the command "!number" which executes the command in the line "number".
 
 functions:
-two main functions:
+
 1-print(): a void function that is responsible for recording the input and showing the output and check for the special keywords and write the string into the file.txt.
 
 2-CountFunc(char*): this function returns an array that stores all of the information related to the string ,it recieves the input as a parameter, that includes How many words,how many characters,whether if history keyword was detected.
@@ -39,15 +35,35 @@ array is null so that execvp works as expected, the function checks if the alloc
 
 6-History_writer(FILE*,char*):this function prints the file contents when writing the word history in the input along with their count this function is called whenever history needs to be activated and this happens in two circumstances,the first one is when the user inputs history directly and the second one is when !"number" hits the line number that has history in it and activates also this function .
 
+7-Nohup_Identifier(char*) : this function checks if there is a nohup in the input
+
+8-second_Pipe(char*): this function returns the index of the second pipe if available 
+
+9-And_Sign(char*): this function returns the index of the & sign if available 
+
+10- char* trimwhitespace(char*): this function deletes leading spaces and returns the edited string
+
+11-Space_Remover : this function removes all leading spaces in a string and returns the edited string
+
+12- execpipe(char**,char**) this function executes a command that has two pipes
+
+13- pipeIndex(char*): this function returns the index of the first pipe if available
+
+14-execTwoPiped(char**,char**,char**): this function executes a command that has two pipes
+
+15- handler: returns handle for the signal in the main to handle the process
+
+16- void SplitString2(char *, int, char *, char *): this function splits the string into two strings according to the given index
+
 ==Program Files==
-ex2a.c- contains the main for the program "a", which does not support the command "!".
-ex2b.c- contains the main for the program "b", which has the same attributes as the program b but supports the command "!".
+ex3.c : the main file
+file.txt: history file
+nohup.txt: nohup input
+
 Makefile-to compile the program.
 ==How to compile?==
-compile: gcc ex2a.c -o ex2a
-compile: gcc ex2b.c -o ex2b
-run: ./ex2a
-     ./ex2b
+compile: gcc -o ex3.c ex3
+run: ./ex3
 
 ==Input:==
 the user inputs terminal line commands
